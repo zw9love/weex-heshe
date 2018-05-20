@@ -1,14 +1,15 @@
 <template>
     <div class="wrapper">
         <div class="nav">
-            <image :src="logo" style="width:60px;height: 30px"/>
+            <image :src="logo" style="width:100px;height: 50px"/>
             <scroller class="first-nav" scroll-direction="horizontal">
                <div
                    @click="firstNavClick(index)"
                    v-for="(item, index) in firstNavData"
                    class="first-nav-cell"
+                   :key="index"
                 >
-                   <text class="first-nav-txt" :class="{activeColor: index === activeIndex}">{{item}}</text>
+                   <text class="first-nav-txt"  :style="{color: index === activeIndex ? 'red' : '#333'}">{{item}}</text>
                </div>
             </scroller>
         </div>
@@ -53,17 +54,20 @@
 
     .nav {
         flex-direction: row;
-        height: 50px;
-        /*background-color: skyblue;*/
+        height: 100px;
+        /* background-color: skyblue; */
         /*justify-content: center;*/
         align-items: center;
         padding: 0 10px;
-        border-bottom: 1px solid #d3d3d3;
+        /* border-bottom: 1px solid #d3d3d3; */
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #d3d3d3;
     }
 
     .first-nav {
         flex: 1;
-        flex-direction: column;
+        flex-direction: row;
         /*height: 30px;*/
         /*background-color: red;*/
         margin-left: 20px;
@@ -72,11 +76,12 @@
     .first-nav-cell{
         justify-content: center;
         align-items: center;
+        /* background-color: yellow */
     }
 
     .first-nav-txt{
-        font-size: 12px;
-        padding: 5px 10px;
+        font-size: 32px;
+        padding: 10px 20px;
     }
 
     .activeColor {

@@ -2590,7 +2590,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/zengwei/work/weex-heshe/src/components/HelloWorld.vue"
+__vue_options__.__file = "E:\\weex-heshe\\src\\components\\HelloWorld.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}
@@ -2644,10 +2644,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/zengwei/work/weex-heshe/src/index.vue"
+__vue_options__.__file = "E:\\weex-heshe\\src\\index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-503c33c6"
+__vue_options__._scopeId = "data-v-2b58ce64"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -2671,17 +2671,19 @@ module.exports = {
   },
   "nav": {
     "flexDirection": "row",
-    "height": "50",
+    "height": "100",
     "alignItems": "center",
     "paddingTop": 0,
     "paddingRight": "10",
     "paddingBottom": 0,
     "paddingLeft": "10",
-    "borderBottom": "1px solid #d3d3d3"
+    "borderBottomWidth": "1",
+    "borderBottomStyle": "solid",
+    "borderBottomColor": "#d3d3d3"
   },
   "first-nav": {
     "flex": 1,
-    "flexDirection": "column",
+    "flexDirection": "row",
     "marginLeft": "20"
   },
   "first-nav-cell": {
@@ -2689,11 +2691,11 @@ module.exports = {
     "alignItems": "center"
   },
   "first-nav-txt": {
-    "fontSize": "12",
-    "paddingTop": "5",
-    "paddingRight": "10",
-    "paddingBottom": "5",
-    "paddingLeft": "10"
+    "fontSize": "32",
+    "paddingTop": "10",
+    "paddingRight": "20",
+    "paddingBottom": "10",
+    "paddingLeft": "20"
   },
   "activeColor": {
     "color": "#FF0000"
@@ -2710,6 +2712,7 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+//
 //
 //
 //
@@ -2761,8 +2764,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["nav"]
   }, [_c('image', {
     staticStyle: {
-      width: "60px",
-      height: "30px"
+      width: "100px",
+      height: "50px"
     },
     attrs: {
       "src": _vm.logo
@@ -2774,6 +2777,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, _vm._l((_vm.firstNavData), function(item, index) {
     return _c('div', {
+      key: index,
       staticClass: ["first-nav-cell"],
       on: {
         "click": function($event) {
@@ -2782,8 +2786,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('text', {
       staticClass: ["first-nav-txt"],
-      class: {
-        activeColor: index === _vm.activeIndex
+      style: {
+        color: index === _vm.activeIndex ? 'red' : '#333'
       }
     }, [_vm._v(_vm._s(item))])])
   }))])])
