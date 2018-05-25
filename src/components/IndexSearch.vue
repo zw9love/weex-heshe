@@ -1,18 +1,28 @@
 <template>
-    <div class="container">
+    <div class="container" :style="containerStyle">
         <text class="txt">搜索</text>
     </div>
 </template>
 
 <script>
     export default {
-        name: "IndexSearch"
+        name: "IndexSearch",
+        data(){
+            return {
+                containerStyle: {}
+            }
+        },
+        created(){
+            // console.log(this.$getConfig().env)
+            const env = this.$getConfig().env
+            this.containerStyle = {width: env.deviceWidth +  'px'}
+        },
     }
 </script>
 
 <style scoped>
     .container {
-        width: 100%;
+        /*width: 100%;*/
         height: 70px;
         justify-content: center;
         align-items: center;

@@ -1,11 +1,11 @@
 <template>
-    <div class="home">
+    <div class="home" :style="homeStyle">
         <div class="nav">
             <div class="first-nav">
                 <!--<image :src="logo" style="width:100px;height: 50px" />-->
                 <div style="width: 140px;height: 80px;background-color: skyblue;"></div>
                 <!--<image :src="logo" style="width:100px;height: 50px" />-->
-                <scroller class="first-nav-scroller" scroll-direction="horizontal">
+                <scroller class="first-nav-scroller" scroll-direction="horizontal" :style="navStyle">
                     <div
                             @click="firstNavClick(index)"
                             v-for="(item, index) in firstNavData"
@@ -29,11 +29,10 @@
 <script>
     // 连格式化都会影响布局。。。垃圾的weex
     // require('./assets/img/nav.png')
-    import { WxcButton } from 'weex-ui'
     import Recommend from '../components/Recommend'
     export default {
         name: 'Home',
-        components: { WxcButton, Recommend },
+        components: { Recommend },
         data() {
             return {
                 // logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png',
@@ -60,8 +59,16 @@
                 ],
                 activeIndex: 0,
                 secondActiveIndex: 0,
-                logo: './assets/img/nav.png'
+                logo: './assets/img/nav.png',
+                homeStyle: {},
+                navStyle: {}
             }
+        },
+        created(){
+            // console.log(this.$getConfig().env)
+            const env = this.$getConfig().env
+            this.homeStyle = {width: env.deviceWidth + 'px', height: env.deviceHeight}
+            this.navStyle = {width: env.deviceWidth - 140 + 'px'}
         },
         methods: {
             firstNavClick(index){
@@ -87,7 +94,9 @@
 <style scoped>
     .home {
         padding: 0 10px;
-        width: 100%;
+        /*width: 100%;*/
+        /*width: 722px;*/
+        /*background-color: red;*/
     }
 
     .nav {
@@ -106,7 +115,6 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        width: 100%;
         border-bottom-width: 1px;
         border-bottom-style: solid;
         border-bottom-color: #d3d3d3;

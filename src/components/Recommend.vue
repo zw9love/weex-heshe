@@ -2,13 +2,13 @@
     <div class="container">
         <!--<image :src=""/>-->
         <div class="main">
-            <div class="left-wrapper"></div>
-            <div class="right-wrapper">
+            <div class="left-wrapper" :style="wrapperStyle"></div>
+            <div class="right-wrapper" :style="wrapperStyle">
                 <text class="text-info">{{info}}</text>
                 <text class="text-name">#{{name}}</text>
             </div>
         </div>
-        <div class="line"></div>
+        <div class="line" :style="{width: $getConfig().env.deviceWidth + 'px'}"></div>
     </div>
 </template>
 
@@ -24,7 +24,19 @@
                 type: String,
                 default: '贺喜时尚'
             },
-        }
+        },
+        data(){
+            return {
+                wrapperStyle: {}
+            }
+        },
+        created(){
+            // console.log(this.$getConfig().env)
+            const env = this.$getConfig().env
+            // console.log(env)
+            // console.log(env.deviceWidth / 2)
+            this.wrapperStyle = {width: Math.ceil(env.deviceWidth / 2) + 'px'}
+        },
     }
 </script>
 
@@ -41,7 +53,7 @@
 
     .left-wrapper{
         flex: 1;
-        height: 220px;
+        /*height: 220px;*/
         background-color: yellow;
     }
 
